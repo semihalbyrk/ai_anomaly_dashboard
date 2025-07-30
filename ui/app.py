@@ -203,7 +203,7 @@ def main():
             </div>
             <div>
                 <h1 style="color: var(--brand-blue); font-size: 2rem; font-weight: 700; margin-bottom: 0;">Service Point Analytics Dashboard</h1>
-                <p style="color: #495057; margin-top: 0;">AI-Powered Anomaly Detection & Optimization</p>
+                <p style="color: #495057; margin-top: 0;">AI-Powered Anomaly Detection & Suggestion</p>
             </div>
         </div>
     """, unsafe_allow_html=True)
