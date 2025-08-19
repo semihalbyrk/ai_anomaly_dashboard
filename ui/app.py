@@ -570,27 +570,75 @@ def main():
             st.markdown("<br><hr/><br>", unsafe_allow_html=True)
             st.markdown('<h2 class="section-title">Metric Explanations</h2>', unsafe_allow_html=True)
             
+            # First row of metrics
             exp1, exp2, exp3 = st.columns(3)
             with exp1:
                 st.markdown("""
-                #### Capacity Alignment (CAIv)
+                ##### Capacity Alignment (CAIv)
                 **Answers:** "Is the container capacity right for this location?"
                 - **> 1.0:** Chronic under-capacity (high overflow risk).
                 - **< 0.4:** Chronic over-capacity (wasted resources).
                 """)
             with exp2:
                 st.markdown("""
-                #### Visit Overflow Frequency (VOF)
+                ##### Visit Overflow Frequency (VOF)
                 **Answers:** "On what percentage of visits was the container already overflowing?"
                 - **> 5%:** A significant problem requiring immediate action.
                 - **< 2%:** Healthy service level.
                 """)
             with exp3:
                 st.markdown("""
-                #### Visit Utilization Ratio (VUR)
+                ##### Visit Utilization Ratio (VUR)
                 **Answers:** "On average, how full are the containers when we collect them?"
-                - **< 40%:** Inefficient; containers are collected too empty, wasting fuel and time.
+                - **< 40%:** Inefficient; containers are collected too empty.
                 - **> 80%:** Risky; containers are consistently near full capacity.
+                """)
+
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+            # Second row of metrics
+            exp4, exp5, exp6 = st.columns(3)
+            with exp4:
+                st.markdown("""
+                ##### Demand Stability (CVv)
+                **Answers:** "How predictable is the waste generation at this point?"
+                - **> 0.6:** Very volatile demand (hard to plan).
+                - **< 0.3:** Very stable demand (easy to plan).
+                """)
+            with exp5:
+                st.markdown("""
+                ##### Peak-to-Mean Ratio (PMRv)
+                **Answers:** "How extreme are the peak collection days compared to the average?"
+                - **> 2.0:** Very spiky demand, indicating high risk of sudden overflows.
+                """)
+            with exp6:
+                st.markdown("""
+                ##### Peak Generation Rate (GR-p90)
+                **Answers:** "What is the generation rate (kg/day) during the busiest periods?"
+                - Helps in planning for worst-case scenarios and ensuring sufficient service frequency.
+                """)
+            
+            st.markdown("<br>", unsafe_allow_html=True)
+
+            # Third row of metrics
+            exp7, exp8, exp9 = st.columns(3)
+            with exp7:
+                st.markdown("""
+                ##### Days-to-Overflow (DtO)
+                **Answers:** "At a typical generation rate, how many days until the container overflows?"
+                - A low DtO compared to service frequency indicates high risk.
+                """)
+            with exp8:
+                st.markdown("""
+                ##### Idle Gap (IG)
+                **Answers:** "What's the longest period a container has gone without service?"
+                - Identifies risks from missed collections or extended holidays.
+                """)
+            with exp9:
+                st.markdown("""
+                ##### Generation Rate Stability (CVgr)
+                **Answers:** "How stable is the daily waste generation *rate*?"
+                - Measures the predictability of how fast a container fills up.
                 """)
 
 
