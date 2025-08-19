@@ -565,6 +565,34 @@ def main():
                 }),
                 use_container_width=True
             )
+            
+            # --- Metric Explanations Section ---
+            st.markdown("<br><hr/><br>", unsafe_allow_html=True)
+            st.markdown('<h2 class="section-title">Metric Explanations</h2>', unsafe_allow_html=True)
+            
+            exp1, exp2, exp3 = st.columns(3)
+            with exp1:
+                st.markdown("""
+                #### Capacity Alignment (CAIv)
+                **Answers:** "Is the container capacity right for this location?"
+                - **> 1.0:** Chronic under-capacity (high overflow risk).
+                - **< 0.4:** Chronic over-capacity (wasted resources).
+                """)
+            with exp2:
+                st.markdown("""
+                #### Visit Overflow Frequency (VOF)
+                **Answers:** "On what percentage of visits was the container already overflowing?"
+                - **> 5%:** A significant problem requiring immediate action.
+                - **< 2%:** Healthy service level.
+                """)
+            with exp3:
+                st.markdown("""
+                #### Visit Utilization Ratio (VUR)
+                **Answers:** "On average, how full are the containers when we collect them?"
+                - **< 40%:** Inefficient; containers are collected too empty, wasting fuel and time.
+                - **> 80%:** Risky; containers are consistently near full capacity.
+                """)
+
 
 if __name__ == "__main__":
     main()
